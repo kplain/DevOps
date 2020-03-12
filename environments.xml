@@ -1,0 +1,101 @@
+<environments>
+	<IS env="DEV">
+		<isalias name="DEVESB01">
+			<host>localhost</host>
+			<port>5556</port>
+			<user>Administrator</user>
+			<pwd>manager</pwd>
+			<useSSL>true</useSSL>
+			<version>10.1</version>
+		</isalias>
+		<isalias name="DEVESB02">
+			<host>localhost</host>
+			<port>5555</port>
+			<user>Administrator</user>
+			<pwdHandle>DevOps</pwdHandle>
+			<useSSL>false</useSSL>
+			<version>10.1</version>
+		</isalias>
+	</IS>
+	<IS env="TEST">
+		<isalias name="TESTESB01">
+			<host>localhost</host>
+			<port>5556</port>
+			<user>Administrator</user>
+			<pwd>manager</pwd>
+			<useSSL>true</useSSL>
+			<version>10.1</version>
+		</isalias>
+		<isalias name="TESTESB02">
+			<host>localhost</host>
+			<port>5555</port>
+			<user>Administrator</user>
+			<pwdHandle>DevOps</pwdHandle>
+			<useSSL>false</useSSL>
+			<version>10.1</version>
+		</isalias>
+	</IS>
+	<IS env="PROD">
+		<isalias name="PRODESB01">
+			<host>localhost</host>
+			<port>5556</port>
+			<user>Administrator</user>
+			<pwd>manager</pwd>
+			<useSSL>true</useSSL>
+			<version>10.1</version>
+		</isalias>
+		<isalias name="PRODESB02">
+			<host>localhost</host>
+			<port>5555</port>
+			<user>Administrator</user>
+			<pwdHandle>DevOps</pwdHandle>
+			<useSSL>false</useSSL>
+			<version>10.1</version>
+		</isalias>
+	</IS>
+	<APIGateway env="DEV">
+		<apigatewayalias name="DEVGateway">
+			<host>localhost</host>
+			<port>5556</port>
+			<user>Administrator</user>
+			<pwd>manager</pwd>
+			<useSSL>true</useSSL>
+			<version>10.1</version>
+		</apigatewayalias>
+	</APIGateway>
+	<APIGateway env="TEST">
+		<apigatewayalias name="TESTGateway">
+			<host>localhost</host>
+			<port>5556</port>
+			<user>Administrator</user>
+			<pwd>manager</pwd>
+			<useSSL>true</useSSL>
+			<version>10.1</version>
+		</apigatewayalias>
+	</APIGateway>
+	<APIGateway env="PROD">
+		<apigatewayalias name="PRODGateway">
+			<host>localhost</host>
+			<port>5556</port>
+			<user>Administrator</user>
+			<pwd>manager</pwd>
+			<useSSL>true</useSSL>
+			<version>10.1</version>
+		</apigatewayalias>
+	</APIGateway>
+	<TargetGroup description="Development Group" name="DEVISGroup" type="IS" version="10.1" isLogicalCluster="true" env="DEV">
+		<alias type="IS">DEVESB01</alias>
+		<alias type="IS">DEVESB02</alias>
+		<!--<cluster name="IntegrationServerTSACluster">DEVESB01,DEVESB02</cluster>-->
+	</TargetGroup>
+	<TargetGroup description="Testing Group" name="TESTISGroup" type="IS" version="10.1" isLogicalCluster="true" env="TEST">
+		<alias type="IS">TESTESB01</alias>
+		<alias type="IS">TESTESB02</alias>
+		<!--<cluster name="IntegrationServerTSACluster">TESTESB01,TESTESB02</cluster>-->
+	</TargetGroup>
+	<TargetGroup description="Production Group" name="PRODISGroup" type="IS" version="10.1" isLogicalCluster="true" env="PROD">
+		<alias type="IS">PRODESB01</alias>
+		<alias type="IS">PRODESB02</alias>
+		<!--<cluster name="IntegrationServerTSACluster">PRODESB01,PRODESB02</cluster>-->
+	</TargetGroup>
+</environments>
