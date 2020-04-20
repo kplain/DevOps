@@ -15,6 +15,7 @@
 	<xsl:param name="projectName"/>
 
 	<xsl:param name="buildAPI"/>
+	<xsl:param name="buildTN"/>
 	<xsl:param name="envConfig"/>
 
 	<xsl:variable name="environment" select="document($envConfig)/environments"/>
@@ -186,13 +187,17 @@
 			<ProjectProperties>
 				<Property name="projectLocking">false</Property>
 				<Property name="concurrentDeployment">false</Property>
-				<Property name="ignoreMissingDependencies">true</Property>
+				<Property name="ignoreMissingDependencies">false</Property>
 				<Property name="isTransactionalDeployment">true</Property>
 			</ProjectProperties>
 
 			<DeploymentSet autoResolve="ignore" description="" name="isDeploymentSet">
 				<xsl:attribute name="srcAlias"><xsl:value-of select="$repoName"/></xsl:attribute>
+				<xsl:attribute name="tnTreeNodeCount"><xsl:value-of select="1000"/></xsl:attribute>
 				<Composite displayName="" name="*" type="IS">
+					<xsl:attribute name="srcAlias"><xsl:value-of select="$repoName"/></xsl:attribute>
+				</Composite>
+				<Composite displayName="" name="*" type="TN">
 					<xsl:attribute name="srcAlias"><xsl:value-of select="$repoName"/></xsl:attribute>
 				</Composite>
 			</DeploymentSet>
