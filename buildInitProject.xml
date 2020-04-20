@@ -89,6 +89,10 @@
 		<property name="apiGatewayDir" value=""/>
 	</target>
 
+	<target name="initTNProjectDir" unless="tnProjectsDir">
+		<property name="tnProjectsDir" value=""/>
+	</target>
+
 	<target name="initTestPackageNamePattern" unless="testPackageNamePattern">
 		<property name="testPackageNamePattern" value=""/>
 	</target>
@@ -106,7 +110,7 @@
 	<target name="initMandatoryProperties" depends="initProjcetName,initBuildOutputDir,initRepositoryName,initDeployerProjectDefinition,initEnvConfig">
 	</target>
 
-	<target name="initOptionalProperties" depends="initISProjectsDir,initISConfigDir,initBPMProjectsDir,initMWSProjectsDir,initRulesProjectsDir,initUMProjectDir,initTestPackageNamePattern,initJenkinsReportDir,initAPIGatewayDir">
+	<target name="initOptionalProperties" depends="initISProjectsDir,initISConfigDir,initBPMProjectsDir,initMWSProjectsDir,initRulesProjectsDir,initUMProjectDir,initTestPackageNamePattern,initJenkinsReportDir,initAPIGatewayDir,initTNProjectDir">
 	</target>
 
 	<target name="initProject" depends="initSystemProperties,initMandatoryProperties,initOptionalProperties" description="init properties needed for the project">

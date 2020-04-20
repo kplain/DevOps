@@ -1,15 +1,15 @@
 <environments>
 	<IS env="DEV">
 		<isalias name="DEVESB01">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5556</port>
 			<user>Administrator</user>
-			<pwd>manager</pwd>
+			<pwd>manage</pwd>
 			<useSSL>true</useSSL>
 			<version>10.1</version>
 		</isalias>
 		<isalias name="DEVESB02">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5555</port>
 			<user>Administrator</user>
 			<pwdHandle>DevOps</pwdHandle>
@@ -19,15 +19,15 @@
 	</IS>
 	<IS env="TEST">
 		<isalias name="TESTESB01">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5556</port>
 			<user>Administrator</user>
-			<pwd>manager</pwd>
+			<pwd>manage</pwd>
 			<useSSL>true</useSSL>
 			<version>10.1</version>
 		</isalias>
 		<isalias name="TESTESB02">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5555</port>
 			<user>Administrator</user>
 			<pwdHandle>DevOps</pwdHandle>
@@ -37,15 +37,15 @@
 	</IS>
 	<IS env="PROD">
 		<isalias name="PRODESB01">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5556</port>
 			<user>Administrator</user>
-			<pwd>manager</pwd>
+			<pwd>manage</pwd>
 			<useSSL>true</useSSL>
 			<version>10.1</version>
 		</isalias>
 		<isalias name="PRODESB02">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5555</port>
 			<user>Administrator</user>
 			<pwdHandle>DevOps</pwdHandle>
@@ -55,36 +55,46 @@
 	</IS>
 	<APIGateway env="DEV">
 		<apigatewayalias name="DEVGateway">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5556</port>
 			<user>Administrator</user>
-			<pwd>manager</pwd>
+			<pwd>manage</pwd>
 			<useSSL>true</useSSL>
+			<version>10.1</version>
+		</apigatewayalias>
+	</APIGateway>
+	<APIGateway env="DEV_ts6">
+		<apigatewayalias name="DEVGateway">
+			<host>rldiesbts6.tcbna.net</host>
+			<port>5556</port>
+			<user>Administrator</user>
+			<pwd>manage</pwd>
+			<useSSL>false</useSSL>
 			<version>10.1</version>
 		</apigatewayalias>
 	</APIGateway>
 	<APIGateway env="TEST">
 		<apigatewayalias name="TESTGateway">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5556</port>
 			<user>Administrator</user>
-			<pwd>manager</pwd>
+			<pwd>manage</pwd>
 			<useSSL>true</useSSL>
 			<version>10.1</version>
 		</apigatewayalias>
 	</APIGateway>
 	<APIGateway env="PROD">
 		<apigatewayalias name="PRODGateway">
-			<host>localhost</host>
+			<host>rldiesbts2.tcbna.net</host>
 			<port>5556</port>
 			<user>Administrator</user>
-			<pwd>manager</pwd>
+			<pwd>manage</pwd>
 			<useSSL>true</useSSL>
 			<version>10.1</version>
 		</apigatewayalias>
 	</APIGateway>
 	<TargetGroup description="Development Group" name="DEVISGroup" type="IS" version="10.1" isLogicalCluster="true" env="DEV">
-		<alias type="IS">DEVESB01</alias>
+		<!--<alias type="IS">DEVESB01</alias>-->
 		<alias type="IS">DEVESB02</alias>
 		<!--<cluster name="IntegrationServerTSACluster">DEVESB01,DEVESB02</cluster>-->
 	</TargetGroup>

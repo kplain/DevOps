@@ -52,8 +52,6 @@
 		<!-- Deployer projects exist for all environments, just one is wanted for this task -->
 		<echo message="Processing Deployer specification for DEV environment."/>
 		<var name="environmentName" value="DEV" />
-		<var name="envDeployerProjectDefinition" value="${deployerProjectDefinition}_${environmentName}.xml" />
-		<var name="envProjectName" value="${projectName}_${environmentName}"/>
 		<var name="envDeploymentCandidate" value="${environmentName}_Deployment"/>
 		<antcall target="triggerDeploy2" />
 
@@ -62,7 +60,7 @@
 	<target name="triggerDeploy2">
 		<exec executable="${deployerInstallationPath}/${deployerExecutable}" dir="${deployerInstallationPath}" failonerror="true" resultproperty="appState">
 			<arg value="--deploy"/>
-			<arg line="-project ${envProjectName}"/>
+			<arg line="-project ${projectName}"/>
 			<arg line="-dc ${envDeploymentCandidate}"/>
 			<arg line="-host ${deployerHost}"/>
 			<arg line="-port ${deployerPort}"/>

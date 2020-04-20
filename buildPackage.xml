@@ -21,7 +21,7 @@
 	<property name="deployerProjectDefinition" value="${workspace.dir}/ProjectAutomator/${projectName}DeploymentSpec.xml"/>
 	
 	<!-- XSLT for the Deployer Project Specification - adding Repository and Project Sections -->
-	<property name="initialXSLT" value="resources/setUpInitial.xslt"/>
+	<property name="initialXSLT" value="resources/setUpInitial_v2.xslt"/>
 
 	<target name="packageWM" description="main packaging task" depends="startPackaging, initPAandDeployerWindows, initPAandDeployerUnix, createDeployerSpec, execProjectAutomator, execVarSubImport">
 	</target>
@@ -81,6 +81,7 @@
 			<param name="repoPath" expression="${buildOutputDir}" />
 			<param name="projectName" expression="${projectName}" />				
 			<param name="buildAPI" expression="${enable.build.APIGateway}"/>
+			<param name="buildTN" expression="${enable.build.TN}"/>
 			
 			<!--target server props -->
 			<param name="envConfig" expression="${SAG_CI_HOME}/${envConfig}" />
@@ -113,9 +114,8 @@
 		<for param="environment" list="${environments}">
 			<sequential>
 				<echo message="Processing VarSub import for environment @{environment}."/>
-				<var name="envProjectName" value="${projectName}_@{environment}"/>
 				<var name="deploymentMapName" value="@{environment}_DeploymentMap"/>
-				<var name="varSubFilename" value="${envProjectName}_DeploymentMap.vs"/>
+				<var name="varSubFilename" value="${projectName}_${DeploymentMapName}.vs"/>
 				<if>
 					<available file="${workspace.dir}/${varsubDir}${deploymentMapName}.vs" type="file" />
 					<then>
@@ -123,7 +123,7 @@
 						<exec executable="${deployerInstallationPath}/${deployerExecutable}" dir="${deployerInstallationPath}" failonerror="true" resultproperty="appState">
 							<arg value="--import"/>
 							<arg line="-varsub"/>
-							<arg line="-project ${envProjectName}"/>
+							<arg line="-project ${projectName}"/>
 							<arg line="-vsFile ${varSubFilename}"/>
 							<arg line="-map ${deploymentMapName}"/>
 							<arg line="-host ${deployerHost}"/>

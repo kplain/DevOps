@@ -1,0 +1,10 @@
+#Modified to encrypt pwd.
+#Wed Mar 04 15:43:37 CST 2020
+caCert=
+user=Administrator
+port=4444
+senderCert=
+host=localhost
+privKey=
+useSSL=false
+pwd=manage
